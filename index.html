@@ -14,7 +14,7 @@
 </head>
 
 <body>
-
+<!-- flashes word is added-->
 {% with messages = get_flashed_messages(with_categories=true) %}
   {% if messages %}
     <div class="container mt-3">
@@ -36,7 +36,7 @@
   <button class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Word</button>
   <a href="/play" class="btn btn-success">Play</a>
 </div>
-
+<!-- modal used to enter custom words of their choice -->
 <div class="modal fade" id="exampleModal" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
