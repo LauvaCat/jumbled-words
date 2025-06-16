@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Play Jumbled Words!</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .word-box {
+      background-color: #e0e0e0;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .input-box {
+      margin-top: 10px;
+    }
+    .back-button {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container mt-4">
+  <div class="text-center mb-4">
+    <h2>Guess The Words!</h2>
+  </div>
+
+  <div class="mb-3">
+    <a href="/" class="btn btn-secondary">Go Back</a>
+  </div>
+
+  <form action="/play" method="post">
+
+    <div class="row justify-content-center">
+      {% for word in jumbledwords %}
+        <div class="col-md-4">
+          <div class="word-box text-center">
+            <div class="fs-4">{{ word.word }}</div>
+            <input type="text" class="form-control input-box" name="{{ word._id }}">
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="text-center mt-4">
+      <button type="submit" class="btn btn-danger px-4">Submit</button>
+    </div>
+  </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
