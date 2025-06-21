@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jumbled Words!</title>
+  <title>Jumbled Words!</title> <!--title for the browser tab -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
@@ -19,21 +19,25 @@
   {% if messages %}
     <div class="container mt-3">
       {% for category, message in messages %}
+      <!-- bootstrap alert box-->
         <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
           {{ message }}
+<!-- close button for the alert -->
           <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
       {% endfor %}
     </div>
   {% endif %}
 {% endwith %}
-
+<!-- header used with the main title -->
 <div class="container header text-center">
   <h1>Jumbled Words!</h1>
 </div>
-
+<!-- buttons to add a word or start the game -->
 <div class="container text-center mt-4">
+  <!-- opens the modal to add a word -->
   <button class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Word</button>
+  <!-- to start playing the game, redirects them to play-game.html -->
   <a href="/play" class="btn btn-success">Play</a>
 </div>
 <!-- modal used to enter custom words of their choice -->
@@ -41,22 +45,26 @@
   <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
+          <!-- modal header with the close modal option -->
           <h5 class="modal-title">Add a Word</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
+          <!-- uses post method to send information/word to app.py -->
           <form method="POST">
           <textarea name="addWord" class="form-control" rows="1" required></textarea>
         </div>
         <div class="modal-footer">
+          <!--button is to close the modal without adding the word -->
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <!-- when submitted, custom word is sent to mongodb for data keeping -->
           <button type="submit" class="btn btn-primary">Add Word</button>
         </div>
       </form>
     </div>
   </div>
 </div>
-
+<!-- bootstrap js bundle -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
